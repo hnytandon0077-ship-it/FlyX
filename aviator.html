@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlyX Aviator</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#08133d;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.logo{
+font-size:42px;
+font-weight:bold;
+color:#59d66f;
+margin:20px 0;
+}
+
+.card{
+background:#18255a;
+border-radius:20px;
+padding:25px;
+margin-top:20px;
+}
+
+.plane{
+font-size:70px;
+margin:20px 0;
+}
+
+.multiplier{
+font-size:80px;
+font-weight:bold;
+color:#59d66f;
+margin:20px 0;
+}
+
+input{
+width:80%;
+padding:15px;
+font-size:22px;
+border:none;
+border-radius:12px;
+margin-top:20px;
+text-align:center;
+}
+
+.btn{
+display:block;
+width:80%;
+margin:15px auto;
+padding:18px;
+font-size:28px;
+font-weight:bold;
+border:none;
+border-radius:12px;
+color:white;
+}
+
+.bet{
+background:#3f66ff;
+}
+
+.cash{
+background:#59d66f;
+}
+
+.results{
+background:#18255a;
+margin-top:20px;
+padding:20px;
+border-radius:20px;
+font-size:28px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="logo">✈️ FlyX Aviator</div>
+
+<div class="card">
+
+<div class="plane">✈️</div>
+
+<div class="multiplier" id="multi">1.00x</div>
+
+<input type="number" placeholder="Enter Bet Amount">
+
+<button class="btn bet">🎮 Place Bet</button>
+
+<button class="btn cash">💰 Cash Out</button>
+
+</div>
+
+<div class="results">
+📜 Recent Results<br><br>
+2.34x • 4.89x • 1.25x • 7.11x • 3.67x
+</div>
+
+<script>
+let m=1.00;
+
+setInterval(()=>{
+m+=(Math.random()*0.08);
+document.getElementById("multi").innerHTML=m.toFixed(2)+"x";
+},1000);
+</script>
+
+</body>
+</html>
