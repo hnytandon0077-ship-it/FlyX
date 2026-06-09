@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FlyX Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+background:#0f172a;
+color:white;
+font-family:Arial,sans-serif;
+text-align:center;
+padding:20px;
+}
+
+.logo{
+font-size:35px;
+font-weight:bold;
+color:#22c55e;
+margin-top:20px;
+}
+
+.multiplier{
+font-size:70px;
+font-weight:bold;
+color:#22c55e;
+margin:40px 0;
+}
+
+button{
+padding:15px 30px;
+border:none;
+border-radius:10px;
+font-size:18px;
+margin:10px;
+font-weight:bold;
+}
+
+.bet{
+background:#2563eb;
+color:white;
+}
+
+.cash{
+background:#22c55e;
+color:white;
+}
+
+.results{
+margin-top:30px;
+font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="logo">✈️ FlyX Game</div>
+
+<h2>Live Multiplier</h2>
+
+<div class="multiplier" id="multi">1.00x</div>
+
+<button class="bet">Place Bet</button>
+<button class="cash">Cash Out</button>
+
+<div class="results">
+2.45x • 1.23x • 4.87x • 7.34x • 3.12x
+</div>
+
+<script>
+let x = 1.00;
+
+setInterval(()=>{
+x += 0.01;
+document.getElementById("multi").innerHTML =
+x.toFixed(2)+"x";
+},100);
+</script>
+
+</body>
+</html>
