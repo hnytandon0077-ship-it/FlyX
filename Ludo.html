@@ -6,69 +6,72 @@
 <title>FlyX Ludo</title>
 <style>
 body{
-margin:0;
-font-family:Arial,sans-serif;
+font-family:Arial;
+text-align:center;
 background:#08133d;
 color:white;
-text-align:center;
 padding:20px;
 }
-.logo{
-font-size:40px;
-font-weight:bold;
-color:#59d66f;
-margin:20px 0;
+.board{
+width:300px;
+height:300px;
+margin:20px auto;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:4px;
 }
-.card{
-background:#16224d;
-padding:25px;
-border-radius:20px;
-margin-top:20px;
+.cell{
+background:white;
+height:56px;
+border-radius:6px;
 }
-.ludo{
-font-size:90px;
-margin:20px 0;
+.token{
+background:red;
+width:30px;
+height:30px;
+border-radius:50%;
+margin:auto;
+margin-top:13px;
 }
 button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
 background:#3f66ff;
 color:white;
-border:none;
-padding:15px 30px;
-border-radius:12px;
-font-size:22px;
-font-weight:bold;
-margin-top:15px;
 }
-.info{
-background:#16224d;
-padding:20px;
-border-radius:20px;
-margin-top:20px;
-font-size:20px;
-}
-.footer{
-margin-top:30px;
-color:#aaa;
+#dice{
+font-size:28px;
+margin:15px;
 }
 </style>
 </head>
 <body>
-<div class="logo">🎲 FlyX Ludo</div>
-<div class="card">
-<div class="ludo">🎲</div>
-<h2>Play Ludo Online</h2>
-<p>Challenge players and win rewards.</p>
-<button>🎮 Start Game</button>
-</div>
-<div class="info">
-👥 Players Online: 1245
-<br><br>
-🏆 Prize Pool: ₹5,000
-<br><br>
-💰 Entry Fee: ₹10
-</div>
-<div class="footer">
-© 2026 FlyX
-</div>
+<h1>🎲 FlyX Ludo</h1>
+<div id="dice">Roll Dice</div>
+<button onclick="rollDice()">Roll</button>
+<div class="board" id="board"></div>
+<script>
+const board=document.getElementById("board");
+for(let i=0;i<25;i++){
+let cell=document.createElement("div");
+cell.className="cell";
+board.appendChild(cell);
+}
+let position=0;
+board.children[0].innerHTML='<div class="token"></div>';
+function rollDice(){
+let dice=Math.floor(Math.random()*6)+1;
+document.getElementById("dice").innerText="Dice: "+dice;
+board.children[position].innerHTML="";
+position+=dice;
+if(position>24){
+alert("🏆 You Win!");
+position=0;
+}
+board.children[position].innerHTML='<div class="token"></div>';
+}
+</script>
 </body>
 </html>
